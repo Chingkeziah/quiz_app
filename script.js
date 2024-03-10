@@ -141,7 +141,7 @@ function displayScore(name, score, questionsLength) {
   if (score > 7) {
     document.getElementById("result").innerHTML =
       name +
-      ", You are superb! you scored " +
+      ", You are superb! You scored " +
       score +
       " questions out of " +
       questionsLength;
