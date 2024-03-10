@@ -1,4 +1,4 @@
-// // a prompt message for the user to input his or her name
+// a prompt message for the user to input his or her name
 // used a while loop to ensure that if no user name is inputed, the page should not load
 let name = prompt("Please enter your name");
 while (name === "") name = prompt("Please enter your name");
@@ -17,8 +17,8 @@ const questions = [
       "Laughing my a** off",
       "wo, e no get meaning",
       "omo!!!",
-    ],
-    correct: 1,
+],
+      correct: 1,
   },
   {
     question: "Who is your guy? According to the song",
@@ -100,6 +100,7 @@ function displayQuestion() {
   // assign the mapped item (answeroptions) into the div of options
   document.getElementById("options").innerHTML = answerOptions;
 }
+
 // check if the selected option is correct and enable the
 // button to go to the next question and score the user if correct
 function selectAnswer(index) {
@@ -112,12 +113,10 @@ function selectAnswer(index) {
 // go to the next question and if no more question, display the answer
 document.getElementById("next").addEventListener("click", () => {
   currQuestion++;
-  if (currQuestionReadable < questions.length) {
-    currQuestionReadable++;
-  }
+  if (currQuestionReadable < questions.length) currQuestionReadable++;
   if (currQuestion < questions.length) {
-    displayProgress(currQuestionReadable, questions.length);
     displayQuestion();
+    displayProgress(currQuestionReadable, questions.length);
     document.getElementById("next").disabled = true;
   } else {
     displayProgress(currQuestionReadable, questions.length);
@@ -129,17 +128,15 @@ document.getElementById("next").addEventListener("click", () => {
 
 displayQuestion();
 
+// A function that displays question progress
 function displayProgress(currQuestion, totalQuestions) {
   document.getElementById("progress").innerHTML =
     "question " + currQuestionReadable + " of " + totalQuestions;
-  //     if(currQuestion < totalQuestions){
-  //     currQuestion++;
-  //     displayProgress();
-  // }
 }
 displayProgress(currQuestionReadable, questions.length);
 
 
+// A function that displays users score plus an encouragement message
 function displayScore(name, score, questionsLength) {
   if (score > 7) {
     document.getElementById("result").innerHTML =
